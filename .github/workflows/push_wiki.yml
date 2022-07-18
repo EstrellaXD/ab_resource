@@ -19,4 +19,4 @@ jobs:
         run: |
           git add date.log
           git commit -m "new commit message"
-          git push origin master
+          git push origin main
