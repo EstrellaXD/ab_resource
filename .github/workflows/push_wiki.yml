@@ -7,8 +7,16 @@ jobs:
   echo-to-file:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: |
-          echo "test" >> README.md
-          git add README.md
-          git commit -m "test"
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: save current date
+        run: echo "{{ date }}" > README.md
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: commit
+        run: |
+          git add date.log
+          git commit -m "new commit message"
+          git push origin master
