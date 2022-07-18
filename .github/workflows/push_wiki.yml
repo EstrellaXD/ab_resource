@@ -1,4 +1,4 @@
-name: build-docker-image
+name: test
 
 on:
   push:
@@ -10,9 +10,11 @@ on:
 
 
 jobs:
-  docker:
+  echo-to-file:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - run: |
+          echo "test" >> README.md
+          git add README.md
+          git commit -m "test"
