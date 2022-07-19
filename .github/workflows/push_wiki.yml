@@ -17,6 +17,5 @@ jobs:
           git config user.email "<>"
       - name: commit
         run: |
-          git add .github/tag.txt
           git commit -m "new commit message"
           git push origin main
